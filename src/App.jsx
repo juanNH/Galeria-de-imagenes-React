@@ -1,10 +1,11 @@
 import React from 'react'
 import Container from './components/Container'
+import Header from './components/header/Header'
 const App = () => {
   return (
     <div>
-      <h1>Galeria App</h1>
-      <hr />
+      <Header  />
+    
       <Container  />
     </div>
   )
