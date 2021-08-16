@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FormImg = (handleSubmit) => {
+const FormImg = ({handleSubmit}) => {
     return (
         <>
             <form onSubmit={handleSubmit}>
