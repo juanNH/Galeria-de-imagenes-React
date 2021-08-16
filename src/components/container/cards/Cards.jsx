@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import Card from './card/Card'
-
+import Spinner from './spinner/Spinner';
 function Cards() {
 
     const [images, setImages] = useState([]);
+
+    const [loading, setLoading] = useState(true)
 
     const [input, setInput] = useState("");
 
@@ -16,6 +18,9 @@ function Cards() {
         if(input !== "") {
             route = `https://api.unsplash.com/search/photos/?query=${encodeURI(input)}&${key}`
         }
+
+        setLoading(true)
+
         const res = await fetch(route);
         
         const data = await res.json();
@@ -25,6 +30,9 @@ function Cards() {
         }else {
             setImages(data)
         }
+
+        setLoading(false)
+
     },[input]);
 
     useEffect(() => {       
@@ -39,7 +47,7 @@ function Cards() {
     }
 
     return (
-        <>
+        <div className="text-center"> 
 
         <form onSubmit={handleSubmit}>
             <label> {" "}Buscar <input className="w-100" name="inputText" type="text" placeholder="Ingrese un texto"/> {" "}</label>
@@ -48,7 +56,7 @@ function Cards() {
             </button>
         </form>
         <hr />
-
+        { loading && <Spinner  /> }
         <div className="row">
         {
             images.map((img) => {
@@ -60,7 +68,7 @@ function Cards() {
         </div>
 
      
-        </>
+        </div>
     );
 }
 
