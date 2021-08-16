@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import Card from './card/Card'
 import Spinner from './spinner/Spinner';
+import FormImg from './formimg/FormImg';
+
 function Cards() {
 
     const [images, setImages] = useState([]);
@@ -49,12 +51,7 @@ function Cards() {
     return (
         <div className="text-center"> 
 
-        <form onSubmit={handleSubmit}>
-            <label> {" "}Buscar <input className="w-100" name="inputText" type="text" placeholder="Ingrese un texto"/> {" "}</label>
-            <button className="btn-success m-2" type="submit">
-                Buscar
-            </button>
-        </form>
+        <FormImg handleSubmit={handleSubmit}>
         <hr />
         { loading && <Spinner  /> }
         <div className="row">
