@@ -8,8 +8,7 @@ function Header() {
                     <span className="navbar-brand mb-0 h1">
                         Galeria App
                     </span>
-                </div>
-               
+                </div>             
             </nav>
         </>
     )
